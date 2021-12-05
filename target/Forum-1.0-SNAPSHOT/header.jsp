@@ -24,7 +24,7 @@
     </head>
 </head>
 <div class="Header">
-    <div class="header2 bg-success-gradiant">
+    <div class="header2 <%if(request.getAttribute("agent").equals("chrome")){%>bg-success-gradiant"<%}else{%>"style="background: linear-gradient(to right, #ff0000 0%, #00ff00 100%);"<%}%>>
         <div class="">
             <!-- Header 1 code -->
             <nav class="navbar navbar-expand-lg h2-nav"> <a class="navbar-brand" href="/Forum">PWSZ Forum</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header2" aria-controls="header2" aria-expanded="false" aria-label="Toggle navigation"> <span class="icon-menu"></span> </button>
