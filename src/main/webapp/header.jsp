@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.mycompany.forum.NewServletListener" %><%--
   Created by IntelliJ IDEA.
   User: skuch
   Date: 26.11.2021
@@ -33,14 +33,39 @@
                         <li class="nav-item active"><a class="nav-link" href="/Forum">Home</a></li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
+                        <%int sessions;%>
+                        <li class="nav-item"><a class="nav-link" href="">Logged users: <%= sessions = NewServletListener.getActiveSessions() %></a></li>
+                        <%
+                            //allow access only if session exists
+                            String user = (String) session.getAttribute("user");
+                            String userName = "";
+                            String userID = "";
+                            String sessionID = null;
+                            Cookie[] cookies = request.getCookies();
+                            if(cookies !=null){
+                                for(Cookie cookie : cookies){
+                                    if(cookie.getName().equals("user")) userName = cookie.getValue();
+                                    if(cookie.getName().equals("userID")) userID = cookie.getValue();
+                                    if(cookie.getName().equals("JSESSIONID")) sessionID = cookie.getValue();
+                                }
+                            }
+                            if(userName == ""){
+                        %>
+
                         <li class="nav-item active"><a class="nav-link" href="login.jsp">Login</a></li>
                         <li class="nav-item"><a class="btn rounded-pill btn-dark py-2 px-4" href="register.jsp">Sign up</a></li>
 
                         <li class="nav-item">
+                        <%}else{%>
+                        <li class="nav-item active"><a class="nav-link" href="">
+                        <%out.write("Hello "+userName);%>
+                    </a></li>
+                        <li class="nav-item">
                             <form action="LogoutServlet" method="post">
-                                <input type="submit" value="Logout" >
+                                <input type="submit" class="btn rounded-pill btn-dark py-2 px-4" value="Logout" >
                             </form>
                         </li>
+                        <%}%>
                     </ul>
                 </div>
             </nav> <!-- End Header 1 code -->

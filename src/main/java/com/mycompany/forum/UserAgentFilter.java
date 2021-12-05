@@ -21,7 +21,7 @@ public class UserAgentFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) sr;
         HttpServletResponse response = (HttpServletResponse) srl;
         String UsrAgent = request.getHeader("User-Agent");
-        System.out.printf(UsrAgent);
+        //System.out.printf(UsrAgent);
         if(UsrAgent.equals("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36")){
             request.setAttribute("agent","chrome");
             fc.doFilter(request,response);

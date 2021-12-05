@@ -29,10 +29,14 @@ public class LogoutServlet extends HttpServlet {
         if(cookies != null){
             for(Cookie cookie : cookies){
                 if(cookie.getName().equals("JSESSIONID")){
-                    cookie.setMaxAge(-1);
-                    break;
+                    cookie.setMaxAge(0);
                 }
             }
+        }
+        if(cookies != null){
+            Cookie c = new Cookie("user","");
+            c.setMaxAge(0);
+            response.addCookie(c);
         }
 
         //invalidate the session if exists

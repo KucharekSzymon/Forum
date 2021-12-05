@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>com.mycompany.forum.NewServletListener</listener-class>
+    </listener>
     <servlet>
         <servlet-name>InsertData</servlet-name>
         <servlet-class>com.mycompany.forum.InsertData</servlet-class>
     </servlet>
-
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>com.mycompany.forum.LoginServlet</servlet-class>
@@ -13,15 +16,22 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>com.mycompany.forum.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>createPost</servlet-name>
+        <servlet-class>com.mycompany.forum.createPost</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InsertData</servlet-name>
         <url-pattern>/InsertData</url-pattern>
     </servlet-mapping>
     <context-param>
         <param-name>posts</param-name>
-        <param-value>2</param-value>
+        <param-value>10</param-value>
     </context-param>
-
+    <servlet-mapping>
+        <servlet-name>createPost</servlet-name>
+        <url-pattern>/createPost</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -42,7 +52,6 @@
     <filter-mapping>
         <filter-name>UserAgentFilter</filter-name>
         <url-pattern>/*</url-pattern>
-
     </filter-mapping>
     <filter-mapping>
         <filter-name>RequestLoggingFilter</filter-name>

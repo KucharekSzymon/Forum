@@ -22,15 +22,12 @@ HttpServletResponse response)
 		throws ServletException, IOException
 	{
 		try {
-			// Initialize the database
 			Connection con = DatabaseConnection.initializeDatabase();
 			String user = request.getParameter("user");
 			String pwd = request.getParameter("pwd");
 			System.out.printf(user);
 			System.out.printf(pwd);
 
-			// Create a SQL query to insert data into demo table
-			// demo table consists of two columns, so two '?' is used
 			PreparedStatement st = con
 				.prepareStatement("INSERT INTO `Users` (`User_ID`, `Username`, `passwd`, `Role`) VALUES (NULL, ?, ?, '1')");
 			st.setString(1,user);

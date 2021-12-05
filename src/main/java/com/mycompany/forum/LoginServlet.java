@@ -52,13 +52,18 @@ public class LoginServlet extends HttpServlet {
         ps.setString(2,pwd);
         ResultSet rs = ps.executeQuery();
             if(rs.next()){
+                String ID = rs.getString("User_ID");
                 HttpSession session = request.getSession();
                 session.setAttribute("user", "Pankaj");
                 //setting session to expiry in 30 mins
                 session.setMaxInactiveInterval(30*60);
                 Cookie userName = new Cookie("user", user);
+                Cookie userID = new Cookie("userID", ID);
                 userName.setMaxAge(30*60);
+                userID.setMaxAge(30*60);
+
                 response.addCookie(userName);
+                response.addCookie(userID);
                 PrintWriter redirect = response.getWriter();
                 redirect.println("<script>window.location.href = '/Forum/';alert('Welcome "+user+"!');</script>");
 
