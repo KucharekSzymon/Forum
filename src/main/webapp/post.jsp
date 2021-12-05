@@ -56,7 +56,7 @@
 	<%}%>
 	<div style="padding: 10px;">
 	<%
-		query = "SELECT Relies.User_ID,Relies.Reply,Relies.Date,Users.User_ID,Users.Username FROM Relies INNER join Users ON Relies.User_ID = Users.User_ID WHERE Relies.Post_ID = ?;";
+		query = "SELECT Relies.User_ID,Relies.Reply,Relies.Date,Users.User_ID,Users.Username FROM Relies INNER join Users ON Relies.User_ID = Users.User_ID WHERE Relies.Post_ID = ? order by Relies.Date DESC;";
 		PreparedStatement ps1 = con.prepareStatement(query);
 		ps1.setString(1,post_ID);
 		ResultSet rs1 = ps1.executeQuery();

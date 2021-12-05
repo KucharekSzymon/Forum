@@ -41,7 +41,7 @@
 		PrintWriter posts = response.getWriter();
 
 		Connection con = DatabaseConnection.initializeDatabase();
-	String query  = "SELECT Post_ID,Posts.Post_Title,Users.Username,Posts.Date,Posts.Post,Users.User_ID from Posts INNER join Users on Posts.Author_ID = Users.User_ID order by Posts.Date;\n";
+	String query  = "SELECT Post_ID,Posts.Post_Title,Users.Username,Posts.Date,Posts.Post,Users.User_ID from Posts INNER join Users on Posts.Author_ID = Users.User_ID order by Posts.Date DESC;";
 		PreparedStatement ps = con.prepareStatement(query);
 		ResultSet rs = ps.executeQuery();
 

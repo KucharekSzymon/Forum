@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Czas generowania: 05 Gru 2021, 22:21
+-- Czas generowania: 05 Gru 2021, 22:26
 -- Wersja serwera: 5.7.36
 -- Wersja PHP: 7.4.20
 
@@ -44,7 +44,8 @@ INSERT INTO `Posts` (`Post_ID`, `Author_ID`, `Post_Title`, `Post`, `Date`) VALUE
 (2, 1, 'Dysk do laptopa', 'Poleci ktoś jakiś niedrogi dysk do laptopa na studia na M.2?', '2021-11-28'),
 (3, 2, 'Zepsuty zasilacz', 'Szukam zasilacza do laptopa ThinkPad t430S, najlepiej z gwarancją', '2021-11-28'),
 (4, 2, 'Pewny Pendrive', 'Szukam pendrive który się nie zepsuje po miesiącu, minimum 64GB', '2021-11-28'),
-(5, 1, 'Dysk przenośny', 'Polecicie jakiś adapter usb-sata? Mam stary dysk i zrobiłbym z niego większego pendrive na rzeczy ze studiów', '2021-11-28');
+(5, 1, 'Dysk przenośny', 'Polecicie jakiś adapter usb-sata? Mam stary dysk i zrobiłbym z niego większego pendrive na rzeczy ze studiów', '2021-11-28'),
+(11, 11, 'Brak graf', 'Wie ktoÅ moÅ¼e kiedy bÄdzie moÅ¼na wkoÅcu kupiÄ jakieÅ karty graficzne? W sklepach dalej pustki', '2021-12-05');
 
 -- --------------------------------------------------------
 
@@ -68,7 +69,8 @@ INSERT INTO `Relies` (`Reply_ID`, `Post_ID`, `User_ID`, `Reply`, `Date`) VALUES
 (1, 4, 12, 'Kup jakiś mały przenośny dysk SSD, będzie i szybszy i lepszy', '2021-12-01'),
 (3, 3, 12, 'SprawdzaÅeÅ na OLX?', '2021-12-05'),
 (4, 4, 12, 'Samsungi zawsze byÅy dobre', '2021-12-05'),
-(5, 4, 11, 'Crucial czerwony, jak zawsze!', '2021-12-05');
+(5, 4, 11, 'Crucial czerwony, jak zawsze!', '2021-12-05'),
+(6, 11, 11, 'GÃ³rnicy jak zawsze niszczÄ rynek', '2021-12-05');
 
 -- --------------------------------------------------------
 
@@ -124,13 +126,13 @@ ALTER TABLE `Users`
 -- AUTO_INCREMENT dla tabeli `Posts`
 --
 ALTER TABLE `Posts`
-  MODIFY `Post_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Post_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT dla tabeli `Relies`
 --
 ALTER TABLE `Relies`
-  MODIFY `Reply_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Reply_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT dla tabeli `Users`
