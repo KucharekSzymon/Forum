@@ -20,6 +20,10 @@
         <servlet-name>createPost</servlet-name>
         <servlet-class>com.mycompany.forum.createPost</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>newComment</servlet-name>
+        <servlet-class>com.mycompany.forum.newComment</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InsertData</servlet-name>
         <url-pattern>/InsertData</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>createPost</servlet-name>
         <url-pattern>/createPost</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>newComment</servlet-name>
+        <url-pattern>/newComment</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

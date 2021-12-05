@@ -56,8 +56,6 @@
 			String User_ID = rs.getString("User_ID");
 			String Date = rs.getString("Date");
 	%>
-
-
 		<div class="card-body py-3">
 			<div class="row no-gutters align-items-center">
 				<div class="col"> <a href="/Forum/post.jsp?post=<%=postID%>" class="text-big" data-abc="true"> <%=tytul %>

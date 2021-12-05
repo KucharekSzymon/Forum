@@ -64,8 +64,7 @@ public class LoginServlet extends HttpServlet {
 
                 response.addCookie(userName);
                 response.addCookie(userID);
-                PrintWriter redirect = response.getWriter();
-                redirect.println("<script>window.location.href = '/Forum/';alert('Welcome "+user+"!');</script>");
+                response.sendRedirect("/Forum");
 
             }else{
                 InetAddress addr = InetAddress.getLocalHost();

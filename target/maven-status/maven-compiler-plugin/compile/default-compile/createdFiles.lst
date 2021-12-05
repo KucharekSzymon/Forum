@@ -1,9 +1,9 @@
 com\mycompany\forum\AuthenticationFilter.class
 com\mycompany\forum\UserAgentFilter.class
-com\mycompany\forum\DatabaseConnection.class
 com\mycompany\forum\resources\JavaEE8Resource.class
+com\mycompany\forum\LoginServlet.class
+com\mycompany\forum\DatabaseConnection.class
 com\mycompany\forum\InsertData.class
 com\mycompany\forum\RequestLoggingFilter.class
-com\mycompany\forum\LoginServlet.class
 com\mycompany\forum\LogoutServlet.class
 com\mycompany\forum\JAXRSConfiguration.class

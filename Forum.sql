@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Czas generowania: 05 Gru 2021, 13:09
+-- Czas generowania: 05 Gru 2021, 22:21
 -- Wersja serwera: 5.7.36
 -- Wersja PHP: 7.4.20
 
@@ -54,10 +54,21 @@ INSERT INTO `Posts` (`Post_ID`, `Author_ID`, `Post_Title`, `Post`, `Date`) VALUE
 
 CREATE TABLE `Relies` (
   `Reply_ID` int(11) NOT NULL,
+  `Post_ID` int(11) NOT NULL,
   `User_ID` int(11) NOT NULL,
-  `Reply` longtext NOT NULL,
-  `Reply_Date` int(11) NOT NULL
+  `Reply` mediumtext CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `Date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Zrzut danych tabeli `Relies`
+--
+
+INSERT INTO `Relies` (`Reply_ID`, `Post_ID`, `User_ID`, `Reply`, `Date`) VALUES
+(1, 4, 12, 'Kup jakiś mały przenośny dysk SSD, będzie i szybszy i lepszy', '2021-12-01'),
+(3, 3, 12, 'SprawdzaÅeÅ na OLX?', '2021-12-05'),
+(4, 4, 12, 'Samsungi zawsze byÅy dobre', '2021-12-05'),
+(5, 4, 11, 'Crucial czerwony, jak zawsze!', '2021-12-05');
 
 -- --------------------------------------------------------
 
@@ -113,19 +124,19 @@ ALTER TABLE `Users`
 -- AUTO_INCREMENT dla tabeli `Posts`
 --
 ALTER TABLE `Posts`
-  MODIFY `Post_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Post_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT dla tabeli `Relies`
 --
 ALTER TABLE `Relies`
-  MODIFY `Reply_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Reply_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT dla tabeli `Users`
 --
 ALTER TABLE `Users`
-  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
