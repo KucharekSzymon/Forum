@@ -17,7 +17,7 @@
 
 	<%
 		String post_ID = request.getParameter("post");
-
+		request.setCharacterEncoding("UTF-8");
 		Connection con = DatabaseConnection.initializeDatabase();
 		String query  = "SELECT Posts.Post_Title,Users.Username,Posts.Date,Posts.Post from Posts INNER join Users on Posts.Author_ID = Users.User_ID where Posts.Post_ID = ?;";
 		PreparedStatement ps = con.prepareStatement(query);

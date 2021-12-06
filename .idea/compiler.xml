@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Forum" options="-endorseddirs &quot;E:\Informatyka III rok\Semestr 5\Zaawansowana Java\Forum\target/endorsed&quot;" />
+      <module name="Forum" options="-endorseddirs C:\Users\skuch\Desktop\Semestr\Forum\target/endorsed" />
     </option>
   </component>
 </project>

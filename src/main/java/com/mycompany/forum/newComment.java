@@ -22,7 +22,7 @@ public class newComment extends HttpServlet {
     {
         try {
             Connection con = DatabaseConnection.initializeDatabase();
-
+            request.setCharacterEncoding("UTF-8");
             String Reply = request.getParameter("Reply");
             String Usr_ID = request.getParameter("User_ID");
             String PostID = request.getParameter("Post_ID");
