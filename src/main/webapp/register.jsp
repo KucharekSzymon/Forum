@@ -15,4 +15,5 @@
         </div><!-- /card-container -->
 </div><!-- /container -->
 </body>
+<%@ include file="/footer.jsp" %>
 </html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Czas generowania: 05 Gru 2021, 22:26
+-- Czas generowania: 27 Gru 2021, 13:44
 -- Wersja serwera: 5.7.36
 -- Wersja PHP: 7.4.20
 
@@ -45,7 +45,27 @@ INSERT INTO `Posts` (`Post_ID`, `Author_ID`, `Post_Title`, `Post`, `Date`) VALUE
 (3, 2, 'Zepsuty zasilacz', 'Szukam zasilacza do laptopa ThinkPad t430S, najlepiej z gwarancją', '2021-11-28'),
 (4, 2, 'Pewny Pendrive', 'Szukam pendrive który się nie zepsuje po miesiącu, minimum 64GB', '2021-11-28'),
 (5, 1, 'Dysk przenośny', 'Polecicie jakiś adapter usb-sata? Mam stary dysk i zrobiłbym z niego większego pendrive na rzeczy ze studiów', '2021-11-28'),
-(11, 11, 'Brak graf', 'Wie ktoÅ moÅ¼e kiedy bÄdzie moÅ¼na wkoÅcu kupiÄ jakieÅ karty graficzne? W sklepach dalej pustki', '2021-12-05');
+(12, 11, 'gvhv', 'ytfy', '2021-12-08');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `Rating`
+--
+
+CREATE TABLE `Rating` (
+  `Reply_ID` int(11) NOT NULL,
+  `User_ID` int(11) NOT NULL,
+  `Stars` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `Rating`
+--
+
+INSERT INTO `Rating` (`Reply_ID`, `User_ID`, `Stars`) VALUES
+(13, 1, 4),
+(13, 2, 5);
 
 -- --------------------------------------------------------
 
@@ -57,7 +77,7 @@ CREATE TABLE `Relies` (
   `Reply_ID` int(11) NOT NULL,
   `Post_ID` int(11) NOT NULL,
   `User_ID` int(11) NOT NULL,
-  `Reply` mediumtext CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `Reply` mediumtext CHARACTER SET utf8 NOT NULL,
   `Date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -67,10 +87,15 @@ CREATE TABLE `Relies` (
 
 INSERT INTO `Relies` (`Reply_ID`, `Post_ID`, `User_ID`, `Reply`, `Date`) VALUES
 (1, 4, 12, 'Kup jakiś mały przenośny dysk SSD, będzie i szybszy i lepszy', '2021-12-01'),
-(3, 3, 12, 'SprawdzaÅeÅ na OLX?', '2021-12-05'),
 (4, 4, 12, 'Samsungi zawsze byÅy dobre', '2021-12-05'),
 (5, 4, 11, 'Crucial czerwony, jak zawsze!', '2021-12-05'),
-(6, 11, 11, 'GÃ³rnicy jak zawsze niszczÄ rynek', '2021-12-05');
+(11, 1, 11, 'ÅÄ', '2021-12-06'),
+(12, 4, 11, 'asdasd', '2021-12-06'),
+(13, 12, 11, 'uygug', '2021-12-08'),
+(14, 4, 11, 'zasilacz z czarnej listy, zamykam', '2021-12-08'),
+(15, 4, 11, 'istnieje opcja szukaj', '2021-12-08'),
+(16, 4, 11, 'temat walkowany wiele razy', '2021-12-08'),
+(17, 4, 11, 'jak chcesz sie uczyc to idz do technikum gowniarzu', '2021-12-08');
 
 -- --------------------------------------------------------
 
@@ -126,13 +151,13 @@ ALTER TABLE `Users`
 -- AUTO_INCREMENT dla tabeli `Posts`
 --
 ALTER TABLE `Posts`
-  MODIFY `Post_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Post_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT dla tabeli `Relies`
 --
 ALTER TABLE `Relies`
-  MODIFY `Reply_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Reply_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT dla tabeli `Users`

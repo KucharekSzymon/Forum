@@ -1,4 +1,6 @@
-<%@ page import="com.mycompany.forum.NewServletListener" %><%--
+<%@ page import="com.mycompany.forum.NewServletListener" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="com.mycompany.forum.DatabaseConnection" %><%--
   Created by IntelliJ IDEA.
   User: skuch
   Date: 26.11.2021
@@ -33,8 +35,24 @@
                     <ul class="navbar-nav">
                         <li class="nav-item active"><a class="nav-link" href="/Forum">Home</a></li>
                     </ul>
+                    <%
+                        Connection cont = DatabaseConnection.initializeDatabase();
+                        String querycntposts  = "SELECT COUNT(Posts.Post_ID) as 'Postcnt' from Posts;";
+                        PreparedStatement pp = cont.prepareStatement(querycntposts);
+                        ResultSet postscnt = pp.executeQuery();
+                        postscnt.next();
+                        Integer cntpost = postscnt.getInt("Postcnt");
+
+                        String qr  = "SELECT COUNT(Relies.Reply_ID) as 'replycnt' from Relies;";
+                        PreparedStatement psr = cont.prepareStatement(qr);
+                        ResultSet rsr = psr.executeQuery();
+                        rsr.next();
+                        Integer cntrep = rsr.getInt("replycnt");
+                    %>
                     <ul class="navbar-nav ml-auto">
                         <%int sessions;%>
+                        <li class="nav-item"><a class="nav-link" href="">All posts:<%=cntpost%></a></li>
+                        <li class="nav-item"><a class="nav-link" href="">All replies:<%=cntrep%></a></li>
                         <li class="nav-item"><a class="nav-link" href="">Logged users: <%= sessions = NewServletListener.getActiveSessions() %></a></li>
                         <%
                             //allow access only if session exists
@@ -58,7 +76,7 @@
 
                         <li class="nav-item">
                         <%}else{%>
-                        <li class="nav-item active"><a class="nav-link" href="">
+                        <li class="nav-item active"><a class="nav-link" href="userPanel.jsp">
                         <%out.write("Hello "+userName);%>
                     </a></li>
                         <li class="nav-item">
