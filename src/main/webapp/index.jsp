@@ -119,9 +119,7 @@
 		</div>
 	<div>
 	</section>
-
-	<%@ include file="/footer.jsp" %>
-
 </div>
+<%@ include file="/footer.jsp" %>
 </body>
 </html>

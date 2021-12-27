@@ -1,12 +1,13 @@
-C:\Users\skuch\Desktop\Semestr\Forum\src\main\java\com\mycompany\forum\resources\JavaEE8Resource.java
-C:\Users\skuch\Desktop\Semestr\Forum\src\main\java\com\mycompany\forum\InsertData.java
-C:\Users\skuch\Desktop\Semestr\Forum\src\main\java\com\mycompany\forum\NewServletListener.java
-C:\Users\skuch\Desktop\Semestr\Forum\src\main\java\com\mycompany\forum\createPost.java
-C:\Users\skuch\Desktop\Semestr\Forum\src\main\java\com\mycompany\forum\LoginServlet.java
-C:\Users\skuch\Desktop\Semestr\Forum\src\main\java\com\mycompany\forum\RequestLoggingFilter.java
-C:\Users\skuch\Desktop\Semestr\Forum\src\main\java\com\mycompany\forum\newComment.java
-C:\Users\skuch\Desktop\Semestr\Forum\src\main\java\com\mycompany\forum\DatabaseConnection.java
-C:\Users\skuch\Desktop\Semestr\Forum\src\main\java\com\mycompany\forum\AuthenticationFilter.java
-C:\Users\skuch\Desktop\Semestr\Forum\src\main\java\com\mycompany\forum\UserAgentFilter.java
-C:\Users\skuch\Desktop\Semestr\Forum\src\main\java\com\mycompany\forum\JAXRSConfiguration.java
-C:\Users\skuch\Desktop\Semestr\Forum\src\main\java\com\mycompany\forum\LogoutServlet.java
+E:\Informatyka III rok\Semestr 5\Zaawansowana Java\Forum\src\main\java\com\mycompany\forum\UserAgentFilter.java
+E:\Informatyka III rok\Semestr 5\Zaawansowana Java\Forum\src\main\java\com\mycompany\forum\addRating.java
+E:\Informatyka III rok\Semestr 5\Zaawansowana Java\Forum\src\main\java\com\mycompany\forum\InsertData.java
+E:\Informatyka III rok\Semestr 5\Zaawansowana Java\Forum\src\main\java\com\mycompany\forum\AuthenticationFilter.java
+E:\Informatyka III rok\Semestr 5\Zaawansowana Java\Forum\src\main\java\com\mycompany\forum\NewServletListener.java
+E:\Informatyka III rok\Semestr 5\Zaawansowana Java\Forum\src\main\java\com\mycompany\forum\resources\JavaEE8Resource.java
+E:\Informatyka III rok\Semestr 5\Zaawansowana Java\Forum\src\main\java\com\mycompany\forum\JAXRSConfiguration.java
+E:\Informatyka III rok\Semestr 5\Zaawansowana Java\Forum\src\main\java\com\mycompany\forum\LogoutServlet.java
+E:\Informatyka III rok\Semestr 5\Zaawansowana Java\Forum\src\main\java\com\mycompany\forum\DatabaseConnection.java
+E:\Informatyka III rok\Semestr 5\Zaawansowana Java\Forum\src\main\java\com\mycompany\forum\createPost.java
+E:\Informatyka III rok\Semestr 5\Zaawansowana Java\Forum\src\main\java\com\mycompany\forum\newComment.java
+E:\Informatyka III rok\Semestr 5\Zaawansowana Java\Forum\src\main\java\com\mycompany\forum\LoginServlet.java
+E:\Informatyka III rok\Semestr 5\Zaawansowana Java\Forum\src\main\java\com\mycompany\forum\RequestLoggingFilter.java

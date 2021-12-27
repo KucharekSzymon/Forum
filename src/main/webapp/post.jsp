@@ -2,13 +2,19 @@
 <%@ page import="com.mycompany.forum.DatabaseConnection" %>
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page import="java.sql.ResultSet" %>
-<%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.math.BigDecimal" %>
+<%@ page import="java.math.RoundingMode" %>
 <html>
 <head>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!--Rating-->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js' type="text/javascript"></script>
+	<script src='starsRating/jquery.MetaData.js' type="text/javascript" language="javascript"></script>
+	<script src='starsRating/jquery.rating.js' type="text/javascript" language="javascript"></script>
+	<link href='starsRating/jquery.rating.css' type="text/css" rel="stylesheet"/>
 </head>
 
 <%@ include file="/header.jsp" %>
@@ -47,7 +53,7 @@
 				<input name="User_ID" type="text" style="display: none;" value="<%=userID%>">
 				<input name="Reply" type="text" class="form-control" placeholder="Write a replay..">
 				<div class="input-group-append">
-					<input  class="btn btn-outline-secondary" type="submit">
+					<input  class="btn btn-outline-secondary" value="Submit" type="submit">
 				</div>
 			</div>
 		</form>
@@ -84,41 +90,63 @@
 					ResultSet rsUsrRating = psUsrRating.executeQuery();
 					if(rsUsrRating.next() == false){
 				%>
-				<form action="/addRating">
-					<fieldset class="rating">
-						<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-						<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-						<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-						<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-						<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-						<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-						<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-						<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-						<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-						<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-					</fieldset>
-				</form>
+				<jsp:element name="form">
+					<jsp:attribute name="action">
+						<%="/Forum/addRating"%>
+					</jsp:attribute>
+					<jsp:attribute name="method">
+						<%="post"%>
+					</jsp:attribute>
+					<jsp:body>
+						<jsp:element name="input">
+							<jsp:attribute name="name">
+								<%="Reply_ID"%>
+							</jsp:attribute>
+							<jsp:attribute name="type">
+								<%="text"%>
+							</jsp:attribute>
+							<jsp:attribute name="style">
+								<%="display:none;"%>
+							</jsp:attribute>
+							<jsp:attribute name="value">
+								<%=rReply_ID%>
+							</jsp:attribute>
+						</jsp:element>
+
+						<input name="User_ID" type="text" style="display: none" value="<%=userID%>"/>
+						<input name="star1" type="radio" value="1" class="star"/>
+						<input name="star1" type="radio" value="2"  class="star"/>
+						<input name="star1" type="radio" value="3"  class="star"/>
+						<input name="star1" type="radio" value="4"  class="star"/>
+						<input name="star1" type="radio" value="5"  class="star"/>
+						<input type="submit" class="btn btn-outline-secondary" value="Rate">
+					</jsp:body>
+				</jsp:element>
+
 				<br>
-				<%}}else {%>
+				<%}}%>
 				<div>
 					<%
 						String qRating = "SELECT AVG(Stars) as AVG FROM Rating WHERE Reply_ID = ?";
 						PreparedStatement psRating = con.prepareStatement(qRating);
 						psRating.setString(1,rReply_ID);
+
 						ResultSet rsRating = psRating.executeQuery();
 						while (rsRating.next()) {
-							Double avg = rsRating.getDouble("AVG");
+
+							BigDecimal bd = new BigDecimal(rsRating.getDouble("AVG")).setScale(2, RoundingMode.HALF_UP);
+							Double avg = (bd.doubleValue());
 							if(avg >0){
+
+								String proc = String.format("%.0f", avg/5*100);
 					%>
-					<p>
-						<%=avg%><span style="color: #ffc700">★</span>
-					</p>
-					<%}}}%>
+					<ul style="margin-left: -50px;">
+						<li><div class="stars"><div class="percent" style="width: <%=proc%>%"></div></div></li>
+					</ul>
+					<%}}%>
 				</div>
 			</div>
-			<span>
-        <%=Data%>
-    </span>
+			<span><%=Data%></span>
 			<hr>
 		</div>
 	<%

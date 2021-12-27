@@ -28,6 +28,15 @@
         <servlet-name>InsertData</servlet-name>
         <url-pattern>/InsertData</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>addRating</servlet-name>
+        <servlet-class>com.mycompany.forum.addRating</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addRating</servlet-name>
+        <url-pattern>/addRating</url-pattern>
+    </servlet-mapping>
+
     <context-param>
         <param-name>posts</param-name>
         <param-value>10</param-value>
