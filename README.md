@@ -1,6 +1,6 @@
 # Simple Forum App
 
-Forumify is a web application developed using JEE (Java Enterprise Edition) with the use of JSP, filters, and servlets. It provides a platform for users to engage in discussions, post topics, and interact with other forum members. This project was developed as part of my semester project to learn Java Servlets.
+Web application developed using JEE (Java Enterprise Edition) with the use of JSP, filters, and servlets. It provides a platform for users to engage in discussions, post topics, and interact with other forum members. This project was developed as part of my semester project to learn Java Servlets.
 
 ## Features
 
